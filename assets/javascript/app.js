@@ -12,7 +12,7 @@ $(document).ready(function() {
         "What film won the Oscar for Best Picture in 2013?",
         "The four chemical bases of DNA are Adenine, Cytosine, Guanine and what?",
     ];
-    
+
     var answerArray = [
         "Adolphe Thiers", 
         "Blue Whale", 
@@ -24,6 +24,8 @@ $(document).ready(function() {
         "Thymine"
     ];
 
+   
+console.log(questionArray[3])
 
 
 
@@ -31,3 +33,4 @@ $(document).ready(function() {
 
 
 });
+
