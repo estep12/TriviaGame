@@ -40,19 +40,9 @@
         }
     ];
 
-    // var answerArray = [
-    //     "Adolphe Thiers", 
-    //     "Blue Whale", 
-    //     "Tazmanian Tiger", 
-    //     "Ivan Lendl", 
-    //     "541 million years" ,
-    //     "Chester A. Arthur",
-    //     "Argo",
-    //     "Thymine"
-    // ];
 
    
-// console.log(questionArray[0])
+
 
 $(document).ready(function() {
 
@@ -61,12 +51,28 @@ $("#start").on("click", function(){
     timer();
     counter = setInterval(timer, 1000);
     $(".time").text("Time Remaining: " + timeRemaining + " secs");
-    $(".questions").text(questionArray[0].question);
-    $(".answers").text(questionArray[0].options.join(" "));
-    
+    displayTrivia();
     }); 
 
     // console.log(timeRemaining)
+
+function displayTrivia() {
+    for (let i = 0; i < questionArray.length; i++){
+        console.log(questionArray[i].question);
+        questionQuestion = JSON.stringify(questionArray[i].question);
+        $("<p>").attr("id", questionQuestion).text(questionQuestion).appendTo($(".questions"));
+        // $(".questions").append(questionArray[i].question);
+        questionAnswer = JSON.stringify(questionArray[i].options.join(" "));
+        $("<p>").attr("id", questionAnswer).text(questionAnswer).appendTo($(".questions"));
+
+    }
+
+    // for (let j = 0; j < questionArray.length; j++){
+    //     console.log(questionArray[j].options);
+    //     questionAnswer = JSON.stringify(questionArray[j].options);
+    //     $("<p>").attr("id", questionAnswer).text(questionAnswer).appendTo($(".answers"));
+    // }
+}
 
 function timer(){
 timeRemaining--;
