@@ -1,7 +1,10 @@
 
-$(document).ready(function() {
+
 
     var timeRemaining = 30;
+    var correct = 0;
+    var incorrect = 0;
+
     var questionArray = [{
         question: "Who was the first French president of the French Third Republic?",
         options: ["Adolphe Thiers", "Napoleon Bonaparte", "Emmanuel Macron", "Charles De Gaulle"],
@@ -49,7 +52,35 @@ $(document).ready(function() {
     // ];
 
    
-console.log(questionArray)
+// console.log(questionArray[0])
+
+$(document).ready(function() {
+
+$("#start").on("click", function(){
+    $(this).hide();
+    timer();
+    counter = setInterval(timer, 1000);
+    $(".time").text("Time Remaining: " + timeRemaining + " secs");
+    $(".questions").text(questionArray[0].question);
+    $(".answers").text(questionArray[0].options.join(" "));
+    
+    }); 
+
+    // console.log(timeRemaining)
+
+function timer(){
+timeRemaining--;
+if (timeRemaining <= 0) {
+    clearInterval(timer);
+    
+    return;
+} console.log(timeRemaining)
+$(".time").text("Time Remaining: " + timeRemaining + " secs");
+};
+
+
+
+
 
 
 
