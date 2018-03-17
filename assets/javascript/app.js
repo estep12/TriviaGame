@@ -89,3 +89,4 @@ $(".time").text("Time Remaining: " + timeRemaining + " secs");
 
 });
 
+// Make one big form with radio buttons
