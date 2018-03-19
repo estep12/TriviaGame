@@ -59,6 +59,7 @@ $("#start").on("click", function(){
     counter = setInterval(timer, 1000);
     displayTrivia();
     checkAnswer();
+    reset();
     }); 
 
     
@@ -71,7 +72,10 @@ function displayTrivia() {
     $("#q3").hide();
     $("#q4").hide();
     $("#submit").hide();
-    $(".questions").text("Correct Answers: " + correctAnswers + "Incorrect Answers: " + incorrectAnswers)
+    $(".questions").hide();
+    $("#correct").html("Correct Answers: " + correctAnswers);
+    $("#incorrect").html("Incorrect Answers: " + incorrectAnswers);
+    $("#startOver").html("Start Over")
     }
     for (let i = 0; i < questionArray.length; i++){
         console.log(questionArray[questionPos].question);
@@ -136,7 +140,9 @@ if (timeRemaining <= 0) {
     $("#q3").hide();
     $("#q4").hide();
     $("#submit").hide();
-    $(".questions").text("Correct Answers: " + correctAnswers + "Incorrect Answers: " + incorrectAnswers)
+    $(".questions").hide();
+    $("#correct").html("Correct Answers: " + correctAnswers);
+    $("#incorrect").html("Incorrect Answers: " + incorrectAnswers);
 
     return;
 } 
@@ -145,9 +151,17 @@ $(".time").text("Time Remaining: " + timeRemaining + " secs");
 
 
 
+function reset(){
+    $("#startOver").on("click", function() {
+    if(timeRemaining <= 0 && questionPos === questionArray.length){
+    timeRemaining = 45;
+    questionPos = 0;
+    displayTrivia();
+    timer();
+    }
 
-
-
+});
+}
 
 
 
@@ -158,4 +172,4 @@ $(".time").text("Time Remaining: " + timeRemaining + " secs");
 
 });
 
-// Make one big form with radio buttons
+
