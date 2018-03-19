@@ -19,10 +19,12 @@ header{
 
 .btn-danger{
     margin-left: 40%;
-    margin-top: 20%;
+    margin-top: 10%;
+    margin-bottom: 10%;
     width: 150px;
     font-size: 30px;
     letter-spacing: 2px;
+    
 }
 
 .time{
@@ -44,6 +46,12 @@ header{
     text-align: center;
 
     
+}
+
+#submit{
+    margin-bottom: 20px;
+    margin-top: 40px;
+    margin-left: 47%;
 }
 
 #correct, #incorrect{
