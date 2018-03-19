@@ -1,7 +1,7 @@
 
 
     var questionPos = 0;
-    var timeRemaining = 50;
+    var timeRemaining = 45;
     var correct = 0;
     var incorrect = 0;
     var userChoice;
@@ -57,12 +57,11 @@ $("#start").on("click", function(){
     $(this).hide();
     timer();
     counter = setInterval(timer, 1000);
-    $(".time").text("Time Remaining: " + timeRemaining + " secs");
     displayTrivia();
     checkAnswer();
     }); 
 
-    // console.log(timeRemaining)
+    
 
 function displayTrivia() {
     if(questionPos === questionArray.length){
@@ -131,9 +130,16 @@ function timer(){
 timeRemaining--;
 if (timeRemaining <= 0) {
     clearInterval(timer);
+    $(".time").hide();
+    $("#q1").hide();
+    $("#q2").hide();
+    $("#q3").hide();
+    $("#q4").hide();
+    $("#submit").hide();
+    $(".questions").text("Correct Answers: " + correctAnswers + "Incorrect Answers: " + incorrectAnswers)
+
     return;
 } 
-// console.log(timeRemaining)
 $(".time").text("Time Remaining: " + timeRemaining + " secs");
 };
 
