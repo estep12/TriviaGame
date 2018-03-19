@@ -110,14 +110,14 @@ function checkAnswer(){
         }
         console.log(choice);
         if(choice === answerAnswer) {
-                // return;
+                
                 correctAnswers++;
                 questionPos++;
                 displayTrivia();
                 console.log("Correct Answers: " + correctAnswers);
                 
             } else {
-                // return;
+    
                 incorrectAnswers++;
                 questionPos++;
                 displayTrivia(); 
@@ -152,20 +152,20 @@ $(".time").text("Time Remaining: " + timeRemaining + " secs");
 
 
 
-function reset(){
-    $("#startOver").on("click", function() {
-    timeRemaining = 45;
-    questionPos = 0;
-    correctAnswers = 0;
-    incorrectAnswers = 0;
-    displayTrivia();
-    checkAnswer();
-    timer();
+// function reset(){
+//     $("#startOver").on("click", function() {
+//     timeRemaining = 45;
+//     questionPos = 0;
+//     correctAnswers = 0;
+//     incorrectAnswers = 0;
+//     displayTrivia();
+//     checkAnswer();
+//     timer();
 
     
-    });
+//     });
 
-}
+// }
 
 
 
