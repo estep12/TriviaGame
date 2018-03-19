@@ -4,6 +4,9 @@
     var timeRemaining = 30;
     var correct = 0;
     var incorrect = 0;
+    var userChoice;
+    var incorrectAnswers = 0;
+    var correctAnswers = 0;
 
     var questionArray = [{
         question: "Who was the first French president of the French Third Republic?",
@@ -59,30 +62,45 @@ $("#start").on("click", function(){
 function displayTrivia() {
     for (let i = 0; i < questionArray.length; i++){
         console.log(questionArray[i].question);
-        questionQuestion = JSON.stringify(questionArray[i].question);
+        questionQuestion = questionArray[i].question.toString();
         $("<p>").attr("id", questionQuestion).text(questionQuestion).appendTo($(".questions"));
-        // $(".questions").append(questionArray[i].question);
-        questionAnswer = JSON.stringify(questionArray[i].options.join(" "));
-        $("<p>").attr("id", questionAnswer).text(questionAnswer).appendTo($(".questions"));
+        questionAnswer = questionArray[i].options;
+        var buttonOne = $("<button>").addClass("answerA").attr("data-id", i).text(questionAnswer[0]).appendTo($(".questions"));
+        var buttonTwo = $("<button>").addClass("answerA").attr("data-id", i).text(questionAnswer[1]).appendTo($(".questions"));
+        var buttonThree = $("<button>").addClass("answerA").attr("data-id", i).text(questionAnswer[2]).appendTo($(".questions"));
+        var buttonFour = $("<button>").addClass("answerA").attr("data-id", i).text(questionAnswer[3]).appendTo($(".questions"));
 
+    
+        $(".answerA").on("click", "buttonOne",  function() {
+            userChoice = $(this).data("answerA");
+            questionArray[0].answer;
+            if(userChoice === questionArray[0].answer) {
+                correctAnswers++;
+                console.log(correctAnswers)
+            } else (userChoice != questionArray[0].answer);{
+                incorrectAnswers++;
+                console.log(incorrectAnswers)
+            }
+        });
+    }
     }
 
-    // for (let j = 0; j < questionArray.length; j++){
-    //     console.log(questionArray[j].options);
-    //     questionAnswer = JSON.stringify(questionArray[j].options);
-    //     $("<p>").attr("id", questionAnswer).text(questionAnswer).appendTo($(".answers"));
-    // }
-}
+
+
 
 function timer(){
 timeRemaining--;
 if (timeRemaining <= 0) {
     clearInterval(timer);
-    
     return;
-} console.log(timeRemaining)
+} 
+// console.log(timeRemaining)
 $(".time").text("Time Remaining: " + timeRemaining + " secs");
 };
+
+
+
+
 
 
 
