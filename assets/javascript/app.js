@@ -76,6 +76,7 @@ function displayTrivia() {
     $("#correct").html("Correct Answers: " + correctAnswers);
     $("#incorrect").html("Incorrect Answers: " + incorrectAnswers);
     $("#startOver").html("<input type='submit'>")
+    
     }
     for (let i = 0; i < questionArray.length; i++){
         console.log(questionArray[questionPos].question);
@@ -152,20 +153,22 @@ $(".time").text("Time Remaining: " + timeRemaining + " secs");
 
 
 
-// function reset(){
-//     $("#startOver").on("click", function() {
-//     timeRemaining = 45;
-//     questionPos = 0;
-//     correctAnswers = 0;
-//     incorrectAnswers = 0;
-//     displayTrivia();
-//     checkAnswer();
-//     timer();
+function reset(){
+    
+    $("#startOver").on("click", function() {
+    
+    timeRemaining = 45;
+    questionPos = 0;
+    correctAnswers = 0;
+    incorrectAnswers = 0;
+    displayTrivia();
+    checkAnswer();
+    timer();
 
     
-//     });
-
-// }
+    });
+    
+}
 
 
 
