@@ -65,22 +65,64 @@ function displayTrivia() {
         questionQuestion = questionArray[i].question.toString();
         $("<p>").attr("id", questionQuestion).text(questionQuestion).appendTo($(".questions"));
         questionAnswer = questionArray[i].options;
+
+
         var buttonOne = $("<button>").addClass("answerA").attr("data-id", i).text(questionAnswer[0]).appendTo($(".questions"));
         var buttonTwo = $("<button>").addClass("answerA").attr("data-id", i).text(questionAnswer[1]).appendTo($(".questions"));
         var buttonThree = $("<button>").addClass("answerA").attr("data-id", i).text(questionAnswer[2]).appendTo($(".questions"));
         var buttonFour = $("<button>").addClass("answerA").attr("data-id", i).text(questionAnswer[3]).appendTo($(".questions"));
 
     
-        $(".answerA").on("click", "buttonOne",  function() {
-            userChoice = $(this).data("answerA");
-            questionArray[0].answer;
-            if(userChoice === questionArray[0].answer) {
+        $(buttonOne).on("click",  function() {
+            userChoice = $(this).data("id");
+            answerAnswer = questionArray[i].answer;
+            if(userChoice === answerAnswer) {
                 correctAnswers++;
-                console.log(correctAnswers)
-            } else (userChoice != questionArray[0].answer);{
+                console.log("Correct Answers: " + correctAnswers);
+            } else  (userChoice != answerAnswer);{
                 incorrectAnswers++;
-                console.log(incorrectAnswers)
+                console.log("Incorrect Answers: " + incorrectAnswers);
             }
+            return;
+        });
+
+        $(buttonTwo).on("click",  function() {
+            userChoice = $(this).data("id");
+            answerAnswer = questionArray[i].answer;
+            if(userChoice === answerAnswer) {
+                correctAnswers++;
+                console.log("Correct Answers: " + correctAnswers);
+            } else  (userChoice != answerAnswer);{
+                incorrectAnswers++;
+                console.log("Incorrect Answers: " + incorrectAnswers);
+            }
+            return;
+        });
+
+        $(buttonThree).on("click",  function() {
+            userChoice = $(this).data("id");
+            answerAnswer = questionArray[i].answer[i];
+            if(userChoice === answerAnswer) {
+                correctAnswers++;
+                console.log("Correct Answers: " + correctAnswers);
+            } else  (userChoice != answerAnswer);{
+                incorrectAnswers++;
+                console.log("Incorrect Answers: " + incorrectAnswers);
+            }
+            return;
+        });
+
+        $(buttonFour).on("click",  function() {
+            userChoice = $(this).data("id");
+            answerAnswer = questionArray[i].answer;
+            if(userChoice === answerAnswer) {
+                correctAnswers++;
+                console.log("Correct Answers: " + correctAnswers);
+            } else  (userChoice != answerAnswer);{
+                incorrectAnswers++;
+                console.log("Incorrect Answers: " + incorrectAnswers);
+            }
+            return;
         });
     }
     }
